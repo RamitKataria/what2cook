@@ -1,135 +1,70 @@
-# Gatsby + Netlify CMS Starter
+# Getting Started with Create React App
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b654c94e-08a6-4b79-b443-7837581b1d8d/deploy-status)](https://app.netlify.com/sites/gatsby-starter-netlify-cms-ci/deploys)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-**Note:** This starter uses [Gatsby v4](https://www.gatsbyjs.com/gatsby-4/).
+## Available Scripts
 
-This repo contains an example business website that is built with [Gatsby](https://www.gatsbyjs.org/), and [Netlify CMS](https://www.netlifycms.org): **[Demo Link](https://gatsby-netlify-cms.netlify.com/)**.
+In the project directory, you can run:
 
-It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
+### `yarn start`
 
-## Features
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-- A simple landing page with blog functionality built with Netlify CMS
-- Editable Pages: Landing, About, Product, Blog-Collection and Contact page with Netlify Form support
-- Create Blog posts from Netlify CMS
-- Tags: Separate page for posts under each tag
-- Basic directory organization
-- Uses Bulma for styling, but size is reduced by `gatsy-plugin-purgecss`
-- Blazing fast loading times thanks to pre-rendered HTML and automatic chunk loading of JS files
-- Uses `gatsby-plugin-image` with Netlify-CMS preview support
-- Separate components for everything
-- Netlify deploy configuration
-- Netlify function support, see `netlify/functions` folder
-- Perfect score on Lighthouse for SEO, Accessibility and Performance (wip:PWA)
-- ..and more
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-## Prerequisites
+### `yarn test`
 
-- Minimal Node.js version 14.15.0
-- [Gatsby CLI](https://www.gatsbyjs.com/docs/reference/gatsby-cli/)
-- [Netlify CLI](https://github.com/netlify/cli)
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Getting Started (Recommended)
+### `yarn build`
 
-Netlify CMS can run in any frontend web environment, but the quickest way to try it out is by running it on a pre-configured starter site with Netlify. The example here is the Kaldi coffee company template (adapted from [One Click Hugo CMS](https://github.com/netlify-templates/one-click-hugo-cms)). Use the button below to build and deploy your own copy of the repository:
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/gatsby-starter-netlify-cms&amp;stack=cms"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-After clicking that button, you’ll authenticate with GitHub and choose a repository name. Netlify will then automatically create a repository in your GitHub account with a copy of the files from the template. Next, it will build and deploy the new site on Netlify, bringing you to the site dashboard when the build is complete. Next, you’ll need to set up Netlify’s Identity service to authorize users to log in to the CMS.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Access Locally
+### `yarn eject`
 
-Pulldown a local copy of the Github repository Netlify created for you, with the name you specified in the previous step
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-```
-$ git clone https://github.com/[GITHUB_USERNAME]/[REPO_NAME].git
-$ cd [REPO_NAME]
-$ yarn
-$ netlify dev # or ntl dev
-```
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-This uses [Netlify Dev](https://www.netlify.com/products/dev/?utm_source=blog&utm_medium=netlifycms&utm_campaign=devex) CLI feature to serve any functions you have in the `netlify/functions` folder.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-To test the CMS locally, you'll need to run a production build of the site:
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-```
-$ npm run build
-$ netlify dev # or ntl dev
-```
+## Learn More
 
-### Media Libraries (installed, but optional)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-Media Libraries have been included in this starter as a default. If you are not planning to use `Uploadcare` or `Cloudinary` in your project, you **can** remove them from module import and registration in `src/cms/cms.js`. Here is an example of the lines to comment or remove them your project.
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-```javascript
-import CMS from "netlify-cms-app";
-// import uploadcare from 'netlify-cms-media-library-uploadcare'
-// import cloudinary from 'netlify-cms-media-library-cloudinary'
+### Code Splitting
 
-import AboutPagePreview from "./preview-templates/AboutPagePreview";
-import BlogPostPreview from "./preview-templates/BlogPostPreview";
-import ProductPagePreview from "./preview-templates/ProductPagePreview";
-import IndexPagePreview from "./preview-templates/IndexPagePreview";
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-// CMS.registerMediaLibrary(uploadcare);
-// CMS.registerMediaLibrary(cloudinary);
+### Analyzing the Bundle Size
 
-CMS.registerPreviewTemplate("index", IndexPagePreview);
-CMS.registerPreviewTemplate("about", AboutPagePreview);
-CMS.registerPreviewTemplate("products", ProductPagePreview);
-CMS.registerPreviewTemplate("blog", BlogPostPreview);
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-Note: Don't forget to also remove them from `package.json` and `yarn.lock` / `package-lock.json` using `yarn` or `npm`. During the build netlify-cms-app will bundle the media libraries as well, having them removed will save you build time.
-Example:
+### Making a Progressive Web App
 
-```
-yarn remove netlify-cms-media-library-uploadcare
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-OR
+### Advanced Configuration
 
-```
-yarn remove netlify-cms-media-library-cloudinary
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-## Getting Started (Without Netlify)
+### Deployment
 
-```
-$ gatsby new [SITE_DIRECTORY_NAME] https://github.com/netlify-templates/gatsby-starter-netlify-cms/
-$ cd [SITE_DIRECTORY_NAME]
-$ npm run build
-$ npm run start
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### Setting up the CMS
+### `yarn build` fails to minify
 
-Follow the [Netlify CMS Quick Start Guide](https://www.netlifycms.org/docs/quick-start/#authentication) to set up authentication, and hosting for production.
-
-If you want use Netlify CMS locally, run the site in one terminal with `npm run start` and in another
-Terminal you can use `npx netlify-cms-proxy-server` which proxy requests so you'll be automatically logged
-in as a user on [http:localhost:3000/admin](http:localhost:3000/admin).
-
-## Debugging
-
-Windows users, who aren't using [WSL](https://docs.microsoft.com/en-us/windows/wsl/about), might encounter `node-gyp` errors when trying to npm install.
-To resolve, make sure that you have both Python 2.7 and the Visual C++ build environment installed.
-
-```
-npm config set python python2.7
-npm install --global --production windows-build-tools
-```
-
-[Full details here](https://www.npmjs.com/package/node-gyp "NPM node-gyp page").
-
-MacOS and WSL users who might also encounter some errors, check [node-gyp](https://github.com/nodejs/node-gyp) for more info. We recommend using the latest stable node version.
-
-## Purgecss
-
-This plugin uses [gatsby-plugin-purgecss](https://www.gatsbyjs.org/packages/gatsby-plugin-purgecss/) and [bulma](https://bulma.io/). The bulma builds are usually ~170K but reduced 90% by purgecss.
-
-# CONTRIBUTING
-
-Contributions are always welcome, no matter how large or small. Before contributing,
-please read the [code of conduct](CODE_OF_CONDUCT.md).
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
