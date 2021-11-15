@@ -1,3 +1,5 @@
+This is for a 12-hour hackathon so the repo hygiene is far from ideal.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
