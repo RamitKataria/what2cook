@@ -1,12 +1,18 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Grid from '@mui/material/Grid';
 
 import MainCard from "./cards/card";
 import ShoppingList from "./cards/shopping-list";
 import RecipeList from "./cards/recipeList";
-import RestrictionsPane from "./cards/RestrictionsPane";
+import RestrictionsCard from "./cards/RestrictionsCard";
 
 export default function HomePage() {
+    let [userData, setUserData] = useState({
+        name: "",
+        intolerances: "",
+        diet: "Omnivore",
+        excludedIngredients: ""
+    })
 
     return (
         <Fragment>
@@ -14,7 +20,7 @@ export default function HomePage() {
             <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'center', alignItems: "flex-center" }}>
                 <ShoppingList />
                 <MainCard />
-                <RestrictionsPane />
+                <RestrictionsCard userData={userData} setUserData={setUserData} />
             </Grid>
 
             <RecipeList />

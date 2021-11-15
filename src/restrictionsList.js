@@ -1,4 +1,5 @@
 export const diets = [
+    "Omnivore",
     "Gluten Free",
     "Ketogenic",
     "Vegetarian",
