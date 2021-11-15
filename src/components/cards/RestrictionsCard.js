@@ -5,6 +5,7 @@ import {
     FormControl, FormLabel, TextField
 } from '@mui/material';
 import { makeStyles } from "@material-ui/core/styles";
+import SigninCard from './SigninCard';
 
 export default function RestrictionsCard({userData, setUserData}) {
     return (
@@ -14,6 +15,7 @@ export default function RestrictionsCard({userData, setUserData}) {
                 <Intolerances userData={userData} setUserData={setUserData}/>
                 <Diets userData={userData} setUserData={setUserData}/>
                 <ExcludeIngredients userData={userData} setUserData={setUserData}/>
+                <SigninCard userData={userData} setUserData={setUserData}/>
             </CardContent>
         </Card>
     )
@@ -35,7 +37,7 @@ export function Diets({userData, setUserData}) {
     };
 
     return (
-        <Box sx={{ minWidth: 120 }}>
+        <Box sx={{ minWidth: 120, margin: 2 }}>
             <FormControl fullWidth>
                 <InputLabel id="diet-selection-label">Diet</InputLabel>
                 <Select
