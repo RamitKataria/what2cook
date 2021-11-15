@@ -27,38 +27,38 @@ function App() {
   }
 
   function addRecipeFilters() {
-    let diets_tmp = diets;
-    let allergies_tmp = allergies;
-    let restrictions_tmp = restrictions;
-    diets_tmp += document.getElementById("dietInput");
-    allergies_tmp += document.getElementById("allergiesInput");
-    restrictions_tmp += document.getElementById("restrictionsInput");
+    setDiets(diets + document.getElementById("dietInput").value);
+    setAllergies(allergies + document.getElementById("allergiesInput").value);
+    setRestrictions(restrictions + document.getElementById("restrictionsInput").value);
 
-    setDiets(diets_tmp);
-    setAllergies(allergies_tmp);
-    setRestrictions(restrictions_tmp);
+    document.getElementById("dietLabel").innerHTML = diets + document.getElementById("dietInput").value;
+    document.getElementById("allergyLabel").innerHTML = allergies + document.getElementById("allergiesInput").value;
+    document.getElementById("restrictionLabel").innerHTML = restrictions + document.getElementById("restrictionsInput").value;
 
-    document.getElementById("dietLabel").innerHTML = diets;
-    document.getElementById("allergyLabel").innerHTML = allergies;
-    document.getElementById("restrictionLabel").innerHTML = restrictions;
+    // document.getElementById("dietInput").placeholder = "";
+    // document.getElementById("allergyInput").placeholder = "";
+    // document.getElementById("restrictionInput").placeholder = "";
 
-    document.getElementById("dietInput").placeholder = "";
-    document.getElementById("allergyInput").placeholder = "";
-    document.getElementById("restrictionInput").placeholder = "";
+    setDatabase();
   }
 
   function clearPreferences() {
     setDiets("");
     setAllergies("");
     setRestrictions("");
-    document.getElementById("dietLabel").innerText = "";
-    document.getElementById("allergyLabel").innerText = "";
-    document.getElementById("restrictionLabel").innerText = "";
+    document.getElementById("dietLabel").innerHTML = "";
+    document.getElementById("allergyLabel").innerHTML = "";
+    document.getElementById("restrictionLabel").innerHTML = "";
   }
 
-  function accessDatabase() {
+  function getID() {
+
+  }
+
+  function getDatabase() {
     fetch (
-      'https://obscure-journey-34975.herokuapp.com/'
+      'https://obscure-journey-34975.herokuapp.com/${groupID}',
+      {method: 'GET'}
     )
     .then(response => response.json())
     .then(data => {
@@ -72,7 +72,21 @@ function App() {
     })
     .catch(() => {
       console.log("error");
-    });;
+    });
+  }
+
+  function setDatabase() {
+    fetch (
+      'https://obscure-journey-34975.herokuapp.com/${groupID}',
+      {method: 'PUT'}
+    )
+    .then(response => response.json())
+    .then(data => {
+      
+    })
+    .catch(() => {
+      console.log("error");
+    });
   }
 
   function handleChangeDiets(e) {
@@ -120,7 +134,6 @@ function App() {
           placeholder="Restrictions (e.g. Garlic)"
           onChange={handleChangeRestrictions}
         />
-        {/* <button onClick={addRecipeFilters}>Add Preferences</button> */}
         <button onClick={getRecipeData}>Get Recipes</button>
         <button onClick={addRecipeFilters}>Add Preferences</button>
         <button onClick={clearPreferences}>Clear Preferences</button>
@@ -129,7 +142,7 @@ function App() {
           placeholder="Group ID"
           onChange={handleChangeDiets}
         />
-        <button onClick={accessDatabase}>Join Group</button>
+        <button onClick={getDatabase}>Join Group</button>
       </section>
       {recipeData && <GetRecipes recipeData={recipeData} />}
     </div>
