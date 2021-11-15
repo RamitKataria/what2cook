@@ -1,5 +1,4 @@
 import { Card, CardContent, TextField } from '@mui/material';
-import React, { useState } from 'react';
 
 export default function SigninCard({userData, setUserData}) {
     const handleChange = (event) => {
