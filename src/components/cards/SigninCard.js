@@ -5,7 +5,7 @@ export default function SigninCard({userData, setUserData}) {
     const handleChange = (event) => {
         setUserData({
             ...userData,
-            name: event.target.value
+            user: event.target.value
         })
     }
 

@@ -9,7 +9,7 @@ import RestrictionsCard from "./cards/RestrictionsCard";
 export default function HomePage() {
     let [userData, setUserData] = useState({
         group: "",
-        name: "",
+        user: "",
         intolerances: "",
         diet: "",
         excludedIngredients: ""
