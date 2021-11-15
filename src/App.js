@@ -7,26 +7,20 @@ import Logo from "./resources/logo.svg"
 
 export default function App() {
   const MyPaths = [
-    {name: "Home", path: "/home-page", component: HomePage},
+    {name: "Home", path: "/", component: HomePage},
     {name: "About Us", path: "/about-page", component: AboutPage}
   ]
 
   return (
     <Router>
-      {MyPaths.map((e) => (
-        <Routes>
-          <Route path={e.path} component={e.component}/>
-        </Routes>
-      ))}
 
-      <footer>
+      <header>
       <ol style={{ textDecoration: "none", display: "flex", flex: "row", margin: 0}}>
 
-      <img
-                    style={{ width: "100px", margin: "0", padding: "0.1rem"}}
-                    src={Logo}
-                    alt="What2Cook"
-                  />
+        <img
+          style={{ width: "100px", margin: "0", padding: "0.1rem"}}
+          src={Logo}
+          alt="What2Cook"/>
 
           {MyPaths.map((e) => {
             return (
@@ -41,8 +35,15 @@ export default function App() {
             );
           })}
         </ol>
-      </footer>
-      <HomePage/>
+      </header>
+
+
+      {MyPaths.map((e) => (
+        <Routes>
+        <Route path={e.path} component={e.component} />
+        </Routes>
+      ))}
+      {/* <HomePage/> */}
     </Router>
   );
 }
