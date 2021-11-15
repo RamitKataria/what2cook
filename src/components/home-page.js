@@ -9,7 +9,6 @@ export default function HomePage() {
 
 return (
     <Fragment>
-    <header>Hi there</header>
 
     <Grid container spacing={2} sx={{display: 'flex', justifyContent: 'center', alignItems:"flex-center"}}>
     <ShoppingList/>
@@ -17,7 +16,7 @@ return (
     <ShoppingList/>
     </Grid>
 
-    {/* <RecipeList/> */}
+    <RecipeList/>
     </Fragment>
 
 );
