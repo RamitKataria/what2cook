@@ -18,7 +18,7 @@ return (
               alt={item.title}
               loading="lazy"
             />
-            <ImageListItemBar position="below" title={item.author} />
+            <ImageListItemBar position="below" title={item.title} />
           </ImageListItem>
         ))}
       </ImageList>
