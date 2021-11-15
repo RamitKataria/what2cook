@@ -15,11 +15,10 @@ export default function App() {
         <Routes>
           <Route path={e.path} componene={e.component}/>
         </Routes>
-       
       ))}
 
       <footer>
-      <ol class="d-flex flex-row m-0" style={{ textDecoration: "none" }}>
+      <ol style={{ textDecoration: "none", display: "flex", flex: "row", margin: 0}}>
           {MyPaths.map((e) => {
             return (
               <nav class="d-flex flex-row m-3">
@@ -34,6 +33,7 @@ export default function App() {
           })}
         </ol>
       </footer>
+      <HomePage/>
     </Router>
   );
 }
