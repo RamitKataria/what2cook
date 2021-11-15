@@ -5,6 +5,7 @@ import MainCard from "./cards/card";
 import ShoppingList from "./cards/shopping-list";
 import RecipeList from "./cards/recipeList";
 import RestrictionsCard from "./cards/RestrictionsCard";
+import Header from "./header";
 
 export default function HomePage() {
     let [userData, setUserData] = useState({
@@ -15,14 +16,14 @@ export default function HomePage() {
         excludedIngredients: ""
     })
 
-    return (
-        <Fragment>
-
-            <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'center', alignItems: "flex-center" }}>
-                <ShoppingList />
-                <MainCard />
-                <RestrictionsCard userData={userData} setUserData={setUserData} />
-            </Grid>
+return (
+    <Fragment>
+    <Header/>
+    <Grid container spacing={2} sx={{display: 'flex', justifyContent: 'center', alignItems:"flex-center"}}>
+    <ShoppingList/>
+    <MainCard/>
+    <RestrictionsCard/>
+    </Grid>
 
             <RecipeList />
         </Fragment>

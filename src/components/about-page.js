@@ -1,10 +1,12 @@
 import React, { Fragment } from "react";
+import Header from "./header";
 
 
 export default function RecipeList() {
 
 return (
     <Fragment>
+        <Header/>
         <h1>Our Values</h1>
         <h3>Inclusivity</h3><span>Share your experience quicker and easier with everyone.</span>
 
