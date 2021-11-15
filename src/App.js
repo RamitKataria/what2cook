@@ -13,7 +13,7 @@ export default function App() {
     <Router>
       {MyPaths.map((e) => (
         <Routes>
-          <Route path={e.path} componene={e.component}/>
+          <Route path={e.path} component={e.component}/>
         </Routes>
       ))}
 

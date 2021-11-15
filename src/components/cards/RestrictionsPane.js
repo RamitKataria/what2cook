@@ -17,7 +17,7 @@ function Intolerances() {
 
     return (
         <FormControl component="fieldset">
-            <FormLabel component="legend">Intetolerances</FormLabel>
+            <FormLabel component="legend">Intolerances</FormLabel>
             <FormGroup>
                 {intolerances.map((name, index) => {
                     return (
