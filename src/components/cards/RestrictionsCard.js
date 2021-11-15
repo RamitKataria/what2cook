@@ -5,18 +5,41 @@ import {
     FormControl, FormLabel, TextField
 } from '@mui/material';
 import { makeStyles } from "@material-ui/core/styles";
+import SigninCard from './SigninCard';
 
-export function Diets() {
+export default function RestrictionsCard({userData, setUserData}) {
+    return (
+        <Card>
+            <CardContent>
+                <h3>Dietary Restrictions</h3>
+                <Intolerances userData={userData} setUserData={setUserData}/>
+                <Diets userData={userData} setUserData={setUserData}/>
+                <ExcludeIngredients userData={userData} setUserData={setUserData}/>
+                <SigninCard userData={userData} setUserData={setUserData}/>
+            </CardContent>
+        </Card>
+    )
+}
+
+export function Diets({userData, setUserData}) {
     const [diet, setDiet] = React.useState('');
 
     const handleChange = (event) => {
+        let newval = event.target.value
         setDiet(event.target.value);
+        if (newval === "Omnivore") {
+            newval = ""
+        }
+        setUserData({
+            ...userData,
+            diet: event.target.value
+        });
     };
 
     return (
-        <Box sx={{ minWidth: 120 }}>
+        <Box sx={{ minWidth: 120, margin: 2 }}>
             <FormControl fullWidth>
-                <InputLabel id="diet-selection-label">Age</InputLabel>
+                <InputLabel id="diet-selection-label">Diet</InputLabel>
                 <Select
                     labelId="diet-selection-label"
                     id="diet-select"
@@ -37,33 +60,32 @@ export function Diets() {
     );
 }
 
-function ExcludeIngredients() {
+function ExcludeIngredients({userData, setUserData}) {
+    const handleChange = (event) => {
+        setUserData({
+            ...userData,
+            excludedIngredients: event.target.value
+        });
+    }
+
     return (
         <TextField
             id="excludedIngredients"
             label="Ingredients to Exclude"
+            onChange={handleChange}
         />
     )
 }
 
-export default function RestrictionsPane() {
-    return (
-        <Card>
-            <CardContent>
-                <h3>Dietary Restrictions</h3>
-                <Intolerances />
-                <Diets />
-                <ExcludeIngredients />
-            </CardContent>
-        </Card>
-    )
-}
-
-function Intolerances() {
+function Intolerances({userData, setUserData}) {
     const classes = useStyles();
     const [selected, setSelected] = useState([]);
     const isAllSelected =
         intolerances.length > 0 && selected.length === intolerances.length;
+
+    const arrayToString = (prev, curr, index, array) => {
+        return (prev + ", " + curr)
+    }
 
     const handleChange = (event) => {
         const value = event.target.value;
@@ -72,6 +94,13 @@ function Intolerances() {
             return;
         }
         setSelected(value);
+        // const temp = userData;
+        // temp.intolerances = value.reduce(arrayToString);
+        const selectedIntolerances = value.reduce(arrayToString);
+        setUserData({
+            ...userData,
+            intolerances: selectedIntolerances
+        });
     };
 
     return (

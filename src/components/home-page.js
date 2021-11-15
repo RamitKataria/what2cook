@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Grid from '@mui/material/Grid';
 
 import MainCard from "./cards/card";
@@ -8,6 +8,13 @@ import RestrictionsCard from "./cards/RestrictionsCard";
 import Header from "./header";
 
 export default function HomePage() {
+    let [userData, setUserData] = useState({
+        group: "",
+        name: "",
+        intolerances: "",
+        diet: "",
+        excludedIngredients: ""
+    })
 
 return (
     <Fragment>
