@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import Logo from "../resources/logo.svg"
 
 export default function Header(props) {
     const MyPaths = [
@@ -13,7 +12,7 @@ export default function Header(props) {
 
             <img
                 style={{ width: "100px", margin: "0", padding: "0.1rem"}}
-                src={Logo}
+                src="/src/logo.svg"
                 alt="What2Cook"/>
 
                 {MyPaths.map((e) => {
