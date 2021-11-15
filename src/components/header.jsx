@@ -8,7 +8,7 @@ export default function Header(props) {
     ]
     return (
         <header>
-            <ol style={{ textDecoration: "none", display: "flex", flex: "row", margin: 0}}>
+            <ol style={{ textDecoration: "none", display: "flex", flex: "row", margin: '1rem'}}>
 
             <img
                 style={{ width: "100px", margin: "0", padding: "0.1rem"}}
