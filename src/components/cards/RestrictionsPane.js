@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { diets, intolerances } from '../../restrictionsList';
 import {
-    Select, MenuItem, ListItemIcon, ListItemText, InputLabel, Card, CardContent, Checkbox, Box, FormControlLabel, FormGroup, Radio,
-    FormControl, RadioGroup, FormLabel, TextField
+    Select, MenuItem, ListItemIcon, ListItemText, InputLabel, Card, CardContent, Checkbox, Box,
+    FormControl, FormLabel, TextField
 } from '@mui/material';
 import { makeStyles } from "@material-ui/core/styles";
 
