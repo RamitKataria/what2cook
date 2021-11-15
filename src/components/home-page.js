@@ -16,14 +16,14 @@ export default function HomePage() {
         excludedIngredients: ""
     })
 
-return (
-    <Fragment>
-    <Header/>
-    <Grid container spacing={2} sx={{display: 'flex', justifyContent: 'center', alignItems:"flex-center"}}>
-    <ShoppingList/>
-    <MainCard/>
-    <RestrictionsCard/>
-    </Grid>
+    return (
+        <Fragment>
+            <Header />
+            <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'center', alignItems: "flex-center" }}>
+                <ShoppingList />
+                <MainCard />
+                <RestrictionsCard userData={userData} setUserData={setUserData} />
+            </Grid>
 
             <RecipeList />
         </Fragment>
